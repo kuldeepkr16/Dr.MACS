@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_with"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="@color/colorAccent"
+    tools:context="com.example.lenovo.dra.RegisterWithActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RadioButton
+        android:text="User/Patient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rbtnUser"
+        android:layout_marginTop="20dp"/>
+
+    <RadioButton
+        android:text="Doctor"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rbtnDoc" />
+
+    <RadioButton
+        android:text="Medical Store"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rbtnMedicalStore" />
+
+    <RadioButton
+        android:text="Hospital"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rbtnHosp" />
+    </RadioGroup>
+
+    <Button
+        android:text="Register"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@color/primaryText"
+        android:textColor="@color/textIcon"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegisterReq" />
+</LinearLayout>
+    </ScrollView>
+</LinearLayout>

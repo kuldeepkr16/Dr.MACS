@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/medAvail"
+            android:icon="@drawable/ic_add_shopping_cart_black_24dp"
+            android:title="Medicine Availability" />
+        <item
+            android:id="@+id/bloodreq"
+            android:icon="@drawable/ic_group_add_black_24dp"
+            android:title="Blood Request" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_call_missed_black_24dp"
+            android:title="Logout" />
+    </group>
+
+</menu>

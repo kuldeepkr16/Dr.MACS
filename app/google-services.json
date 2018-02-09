@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "223449559503",
+    "firebase_url": "https://drafirebaseproject.firebaseio.com",
+    "project_id": "drafirebaseproject",
+    "storage_bucket": "drafirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223449559503:android:ef2a73dae1d65a91",
+        "android_client_info": {
+          "package_name": "com.example.lenovo.dra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223449559503-e1i7v298cvu7cn9i7gs4cktjoin3399m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.dra",
+            "certificate_hash": "462d2f246963f920a137e3b9293c71648a2b613d"
+          }
+        },
+        {
+          "client_id": "223449559503-86gpfrlgcu234v2o2pdo67annul5t55v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.dra",
+            "certificate_hash": "732f9360c2ed31d966179af40167203cc4fa9dd6"
+          }
+        },
+        {
+          "client_id": "223449559503-44chir86pq13ec0854f7c1b7q37nclve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbphWVAjdoeJqzsZ0OULIgIfUZo4LFvIs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223449559503-44chir86pq13ec0854f7c1b7q37nclve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
