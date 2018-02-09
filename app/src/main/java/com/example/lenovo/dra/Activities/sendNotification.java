@@ -26,6 +26,7 @@ public class sendNotification extends AppCompatActivity {
     private String mCurrentId;
     private FirebaseFirestore mFirestore;
     DocumentReference docRef;
+    //n
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
