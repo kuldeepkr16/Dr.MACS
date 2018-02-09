@@ -1,8 +1,6 @@
 package com.example.lenovo.dra.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.example.lenovo.dra.R;
 
 public class BloodRequest extends MainActivity {

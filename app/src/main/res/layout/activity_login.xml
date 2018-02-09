@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@color/primaryText"
+            android:background="@drawable/btn_border"
             android:id="@+id/btnLogin"
             android:textSize="16dp"
             android:textColor="@color/textIcon"
@@ -91,7 +91,7 @@
         android:textSize="16dp"
         android:text="Register"
         android:id="@+id/LinkToRegister"
-        android:background="@color/primaryText"
+        android:background="@drawable/btn_border"
         android:layout_below="@+id/button"
         android:layout_gravity="center"
         android:textColor="@color/textIcon"/>
