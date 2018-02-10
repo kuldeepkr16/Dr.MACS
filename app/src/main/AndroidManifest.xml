@@ -55,7 +55,9 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ShowTerms" />
         <activity android:name=".RegisterWithActivity" />
-        <activity android:name=".Activities.sendNotification"></activity>
+        <activity android:name=".Activities.sendNotification" />
+        <activity android:name=".Activities.RegisterMediStoreActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>

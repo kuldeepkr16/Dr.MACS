@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.lenovo.dra.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Created by lenovo on 2/7/2018.
@@ -19,7 +20,7 @@ public class HospitalSearch extends AppCompatActivity {
     Button btnHosp;
     Button btnMedicalStore;
     Button btnBloodRequest;
-
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class HospitalSearch extends AppCompatActivity {
         btnHosp = (Button) findViewById(R.id.btnHosp);
         btnMedicalStore = (Button) findViewById(R.id.btnMedicalStores);
         btnBloodRequest = (Button) findViewById(R.id.btnBloodReq);
-
+        mAuth = FirebaseAuth.getInstance();
         btnHosp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,8 +43,7 @@ public class HospitalSearch extends AppCompatActivity {
         btnMedicalStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HospitalSearch.this,LoginActivity.class);
-                startActivity(i);
+             mAuth.signOut();
             }
         });
     }

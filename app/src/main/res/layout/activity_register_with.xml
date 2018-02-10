@@ -5,53 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="30dp"
-    android:background="@color/colorAccent"
+    android:background="@drawable/background"
     tools:context="com.example.lenovo.dra.RegisterWithActivity">
+
+    <include layout="@layout/top_bar"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="30dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textIcon"
+            android:text="Register As :- "
+            android:textSize="30dp"
+            />
+
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <RadioButton
         android:text="User/Patient"
+        android:buttonTint="@color/textIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rbtnUser"
+        android:textColor="@color/textIcon"
         android:layout_marginTop="20dp"/>
 
     <RadioButton
         android:text="Doctor"
+        android:buttonTint="@color/textIcon"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/textIcon"
         android:id="@+id/rbtnDoc" />
 
     <RadioButton
         android:text="Medical Store"
         android:layout_marginTop="20dp"
+        android:buttonTint="@color/textIcon"
         android:layout_width="match_parent"
+        android:textColor="@color/textIcon"
         android:layout_height="wrap_content"
         android:id="@+id/rbtnMedicalStore" />
 
     <RadioButton
         android:text="Hospital"
+        android:buttonTint="@color/textIcon"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/textIcon"
         android:id="@+id/rbtnHosp" />
     </RadioGroup>
 
     <Button
-        android:text="Register"
+        android:text="Next"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@color/primaryText"
+        android:background="@drawable/btn_border"
         android:textColor="@color/textIcon"
         android:textSize="20dp"
         android:layout_height="wrap_content"

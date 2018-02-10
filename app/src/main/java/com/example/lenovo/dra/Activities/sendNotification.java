@@ -25,8 +25,6 @@ public class sendNotification extends AppCompatActivity {
     private Button btnSend;
     private String mCurrentId;
     private FirebaseFirestore mFirestore;
-    DocumentReference docRef;
-    //n.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +37,14 @@ public class sendNotification extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                mFirestore = FirebaseFirestore.getInstance();
                 String message = txtMessage.getText().toString();
                 if(!TextUtils.isEmpty(message)){
                     Map<String, Object> noti = new HashMap<String, Object>();
                     noti.put("message", message);
                     noti.put("from", mCurrentId);
 
-                    db.collection("users").document(mCurrentId).collection("noti").add(noti)
+                    mFirestore.collection("users").document(mCurrentId).collection("noti").add(noti)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {

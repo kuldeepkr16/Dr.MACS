@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <include layout="@layout/top_bar"/>
+
+<ScrollView
     android:layout_height="match_parent"
     android:layout_width="match_parent">
     <LinearLayout
@@ -11,11 +17,12 @@
         android:padding="10dp"
         android:orientation="vertical"
         tools:context="com.example.lenovo.dra.Activities.RegisterUserActivity">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:text="Welcome Doctor - "
             />
         <ImageView
@@ -111,6 +118,7 @@
             <RadioButton
                 android:text="Male"
                 android:textSize="15dp"
+                android:buttonTint="@color/secondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rbtnmale"
@@ -119,6 +127,7 @@
             <RadioButton
                 android:text="Female"
                 android:textSize="15dp"
+                android:buttonTint="@color/secondaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rbtnFemale"
@@ -307,6 +316,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/chkConfirm"
                 android:checked="true"
+                android:buttonTint="@color/secondaryText"
                 android:layout_marginTop="16dp"
                 />
 
@@ -331,3 +341,4 @@
 
     </LinearLayout>
 </ScrollView>
+</LinearLayout>

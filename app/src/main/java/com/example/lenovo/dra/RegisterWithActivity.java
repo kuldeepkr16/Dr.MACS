@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.lenovo.dra.Activities.RegisterDocActivity;
+import com.example.lenovo.dra.Activities.RegisterMediStoreActivity;
 import com.example.lenovo.dra.Activities.RegisterUserActivity;
 
 public class RegisterWithActivity extends AppCompatActivity {
@@ -17,6 +19,7 @@ public class RegisterWithActivity extends AppCompatActivity {
     RadioButton rbtnDoc;
     RadioButton rbtnMed;
     RadioButton rbtnHosp;
+    ImageView btnBackTop;
     Button btnRegRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,13 @@ public class RegisterWithActivity extends AppCompatActivity {
         rbtnHosp = (RadioButton) findViewById(R.id.rbtnHosp);
         rbtnMed = (RadioButton) findViewById(R.id.rbtnMedicalStore);
         btnRegRequest = (Button) findViewById(R.id.btnRegisterReq);
-
+        btnBackTop = (ImageView) findViewById(R.id.btnBackTop);
+        btnBackTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnRegRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +52,7 @@ public class RegisterWithActivity extends AppCompatActivity {
                     startActivity(new Intent(RegisterWithActivity.this, RegisterDocActivity.class));
                 }
                 else if(rbtnMed.isChecked()){
-
+                    startActivity(new Intent(RegisterWithActivity.this, RegisterMediStoreActivity.class));
                 }
                 else if(rbtnHosp.isChecked()){
 

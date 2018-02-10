@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterDocActivity extends AppCompatActivity {
+    ImageView btnBackTop;
     EditText txtUname;
     EditText txtEmail;
     EditText txtPassword;
@@ -43,11 +45,11 @@ public class RegisterDocActivity extends AppCompatActivity {
     TextView txtTitle;
     DatabaseReference mDatabase;
     String gender;
-    int status = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_doc);
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("doctors");
         mAuth = FirebaseAuth.getInstance();
         txtUname = (EditText) findViewById(R.id.txtuname);
@@ -68,7 +70,13 @@ public class RegisterDocActivity extends AppCompatActivity {
         txtTitle = (TextView) findViewById(R.id.txtTitle);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/barbar.ttf");
         txtTitle.setTypeface(custom_font);
-
+        btnBackTop = (ImageView) findViewById(R.id.btnBackTop);
+        btnBackTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         textViewTerms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

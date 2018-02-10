@@ -24,12 +24,14 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView;
-
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             Toast.makeText(getApplicationContext(), "This feature is not available", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.logout) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            mAuth.signOut();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
