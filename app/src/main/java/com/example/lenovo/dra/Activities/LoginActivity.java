@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,15 +19,21 @@ import com.example.lenovo.dra.R;
 import com.example.lenovo.dra.RegisterWithActivity;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
@@ -36,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseReference mDatabse;
     private TextView linkToRegister;
     private ProgressBar spinner;
+    private boolean chk = true;
+    private FirebaseFirestore mFirestore;
 
     @Override
     protected void onResume() {
@@ -53,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth=FirebaseAuth.getInstance();
-
+        mFirestore = FirebaseFirestore.getInstance();
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
         spinner.setVisibility(View.GONE);
         mDatabse= FirebaseDatabase.getInstance().getReference().child("users");
@@ -84,10 +93,39 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                    checkUserExist();
+                    boolean chk = checkUserExist();
+                        if(chk){
+
+                            mAuth.getCurrentUser().getIdToken(true).addOnSuccessListener(new OnSuccessListener<GetTokenResult>() {
+                                @Override
+                                public void onSuccess(GetTokenResult getTokenResult) {
+                                    String token_id = getTokenResult.getToken();
+                                    String current_id = mAuth.getCurrentUser().getUid();
+
+                                    Map<String, Object> tokenMap = new HashMap<String, Object>();
+                                    tokenMap.put("token_id", token_id);
+                                    Log.i("error","Logging you in"+ token_id);
+
+                                    mFirestore.collection("users").document(current_id).set(tokenMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.i("error","inside success");
+                                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            spinner.setVisibility(View.GONE);
+                                            startActivity(i);
+                                        }
+                                    });
+                                }
+                            });
+
+                        }else{
+                            spinner.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, "Wrong Username/Password", Toast.LENGTH_SHORT).show();
+                        }
                     }else{
                         spinner.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this,"Error login",Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"Wrong Username/Password",Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -97,19 +135,15 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void checkUserExist() {
+    private boolean checkUserExist() {
        final String s = mAuth.getCurrentUser().getUid();
         mDatabse.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild(s)){
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    spinner.setVisibility(View.GONE);
-                    startActivity(i);
+                    chk = true;
                 }else{
-                    spinner.setVisibility(View.GONE);
-                    Toast.makeText(LoginActivity.this, "wrong credentials", Toast.LENGTH_SHORT).show();
+                    chk =  false;
                 }
             }
 
@@ -118,5 +152,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    return chk;
     }
 }
