@@ -49,16 +49,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView2" />
 
-        <EditText
-            android:textSize="20dp"
-            android:id="@+id/txtemail"
-            android:padding="5dp"
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Upload"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/btnPicUpload"
             android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:inputType="textEmailAddress"
-            android:hint="Upload an image here" />
+            android:background="@drawable/btn_border"
+            android:textColor="@color/textIcon"/>
 
         <Button
             android:layout_width="match_parent"

@@ -13,10 +13,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="100dp"
-        android:background="@drawable/background">
-    <TextView
+        android:background="@color/colorPrimaryLight">
+    <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="News posts here" />
+        android:text="News posts here"
+        android:id="@+id/txtNewPost"/>
     </LinearLayout>
 </FrameLayout>

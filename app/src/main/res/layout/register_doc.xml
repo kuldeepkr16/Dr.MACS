@@ -306,6 +306,27 @@
             android:id="@+id/txtSpeciality"
             android:hint="Your Speciality"/>
 
+        <TextView
+            android:text="Private Clinic"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:background="@drawable/border"
+            android:maxLength="6"
+            android:id="@+id/txtPrivAdres"
+            android:hint="Enter Address"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -328,6 +349,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewTerms" />
+
         </LinearLayout>
 
         <Button
