@@ -1,5 +1,6 @@
 package com.example.lenovo.dra.Activities;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.lenovo.dra.R;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +36,7 @@ public class sendNotification extends AppCompatActivity {
         txtMessage = (EditText) findViewById(R.id.txtMessage);
         btnSend = (Button) findViewById(R.id.btnSendNotification);
         mCurrentId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String toUserId = "2yqRhwxX2SYKJ55HVGIoPUX9Dga2" ;
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,13 +47,18 @@ public class sendNotification extends AppCompatActivity {
                     noti.put("message", message);
                     noti.put("from", mCurrentId);
 
-                    mFirestore.collection("users").document(mCurrentId).collection("noti").add(noti)
+                    mFirestore.collection("users").document(toUserId).collection("noti").add(noti)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Toast.makeText(sendNotification.this, "Sent", Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(sendNotification.this, "not sent", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         });

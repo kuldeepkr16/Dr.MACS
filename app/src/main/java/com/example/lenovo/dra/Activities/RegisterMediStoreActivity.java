@@ -30,8 +30,6 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
     EditText txtUname;
     EditText txtEmail;
     EditText txtPassword;
-    RadioButton rbtnMale;
-    RadioButton rbtnFemale;
     EditText txtPhoneNo;
     EditText txtHouseNo;
     EditText txtLocality;
@@ -44,19 +42,16 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     TextView txtTitle;
     DatabaseReference mDatabase;
-    String gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_medi_store);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("medicalstores");
         mAuth = FirebaseAuth.getInstance();
         txtUname = (EditText) findViewById(R.id.txtuname);
         txtEmail = (EditText) findViewById(R.id.txtemail);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
-        rbtnMale = (RadioButton) findViewById(R.id.rbtnmale);
-        rbtnFemale = (RadioButton) findViewById(R.id.rbtnFemale);
         txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         txtHouseNo = (EditText) findViewById(R.id.txtHouseNo);
         txtLocality = (EditText) findViewById(R.id.txtLocality);
@@ -67,7 +62,7 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
         textViewTerms = (TextView) findViewById(R.id.textViewTerms);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         txtTitle = (TextView) findViewById(R.id.txtTitle);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/barbar.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/barbar.ttf");
         txtTitle.setTypeface(custom_font);
         btnBackTop = (ImageView) findViewById(R.id.btnBackTop);
         btnBackTop.setOnClickListener(new View.OnClickListener() {
@@ -92,10 +87,6 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
                 }
                 else if(validateInputs() == 2){
                     Toast.makeText(RegisterMediStoreActivity.this, "You Must Accept Terms And Conditions!!", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                else if(validateInputs() == 3){
-                    Toast.makeText(RegisterMediStoreActivity.this, "Please Choose Your Gender!", Toast.LENGTH_LONG).show();
                     return;
                 }
                 else if(validateInputs() == 4){
@@ -133,16 +124,13 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
         else if(!chkConfirmation.isChecked()){
             stat = 2;
         }
-        else if(!rbtnMale.isChecked() && !rbtnFemale.isChecked()){
-            stat = 3;
-        }
-        if(txtPassword.getText().toString().trim().length()<6){
+        else if(txtPassword.getText().toString().trim().length()<6){
             stat = 4;
         }
-        if(txtPhoneNo.getText().toString().trim().length()<10){
+        else if(txtPhoneNo.getText().toString().trim().length()<10){
             stat = 5;
         }
-        if(txtPin.getText().toString().trim().length()<6){
+        else if(txtPin.getText().toString().trim().length()<6){
             stat = 6;
         }
         return stat;
@@ -152,13 +140,6 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
         final String name = txtUname.getText().toString().trim();
         final String email = txtEmail.getText().toString().trim();
         String password = txtPassword.getText().toString().trim();
-        if(rbtnMale.isChecked()){
-            gender = "Male";
-        }
-        else
-        if(rbtnFemale.isChecked()){
-            gender = "Female";
-        }
         final String phoneNo = txtPhoneNo.getText().toString().trim();
         final String houseNo = txtHouseNo.getText().toString().trim();
         final String locality = txtLocality.getText().toString().trim();
@@ -181,9 +162,8 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
                             DatabaseReference current_user_db = mDatabase.child(userId);
                             current_user_db.child("name").setValue(name);
                             current_user_db.child("email").setValue(email);
-                            current_user_db.child("gender").setValue(gender);
                             current_user_db.child("phoneNo").setValue(phoneNo);
-                            current_user_db.child("houseNo").setValue(houseNo);
+                            current_user_db.child("plotNo").setValue(houseNo);
                             current_user_db.child("locality").setValue(locality);
                             current_user_db.child("city").setValue(city);
                             current_user_db.child("state").setValue(state);

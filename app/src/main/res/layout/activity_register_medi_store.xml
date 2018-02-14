@@ -22,21 +22,14 @@
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:textSize="30dp"
+            android:id="@+id/txtTitle"
             android:text="Register Your Medical Store here - "
             />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:background="@drawable/medstorepic"/>
-        <TextView
-            android:text="Register Yourself"
-            android:textSize="50dp"
-            android:textColor="@color/primaryText"
-            android:layout_gravity="center"
-            android:id="@+id/txtTitle"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
         <TextView
             android:text="*Name:-"
             android:textColor="#000"
@@ -56,7 +49,7 @@
             android:textCursorDrawable="@drawable/cursor_color"
             android:inputType="text"
             android:background="@drawable/border"
-            android:hint="Enter your Name"/>
+            android:hint="Enter Name Of The Store"/>
 
         <TextView
             android:text="*Email:-"
@@ -109,30 +102,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView4" />
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
-            <RadioButton
-                android:text="Male"
-                android:textSize="15dp"
-                android:buttonTint="@color/secondaryText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rbtnmale"
-                android:layout_weight="1"/>
-
-            <RadioButton
-                android:text="Female"
-                android:textSize="15dp"
-                android:buttonTint="@color/secondaryText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rbtnFemale"
-                android:layout_weight="1"/>
-        </RadioGroup>
-
         <TextView
             android:text="*Phone Number:-"
             android:textColor="#000"
@@ -178,7 +147,7 @@
             android:id="@+id/textView6" />
 
         <TextView
-            android:text="*Enter House/Flat No."
+            android:text="*Enter Plot No."
             android:textSize="20dp"
             android:layout_marginTop="16dp"
             android:textColor="#000"
@@ -196,7 +165,7 @@
             android:textCursorDrawable="@drawable/cursor_color"
             android:layout_marginTop="16dp"
             android:id="@+id/txtHouseNo"
-            android:hint="House No."/>
+            android:hint="Plot No."/>
 
         <TextView
             android:text="*Enter Locality"

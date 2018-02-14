@@ -13,14 +13,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="100dp"
-        android:background="@color/colorPrimaryLight">
+        android:background="@color/colorPrimaryDark"
+        android:weightSum="1">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Profile here"
+        android:id="@+id/txtUSERPROFILE"
         android:textColor="@color/textIcon"/>
 
-    <Button
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar2"
+            android:layout_weight="0.18" />
+
+        <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"

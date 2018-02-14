@@ -1,6 +1,8 @@
 package com.example.lenovo.dra.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,10 +13,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.lenovo.dra.R;
 import com.example.lenovo.dra.tabPages;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +29,13 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView;
     private FirebaseAuth mAuth;
+    String USERNAME;
+    String EMAIL;
+    String PHONE;
+    TextView txtUserName;
+    TextView txtEmail;
+    TextView txtPhone;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +43,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+
+        //getting values of current user using shared preferences
+        sharedPreferences = getSharedPreferences("currentUserData", Context.MODE_PRIVATE);
+        USERNAME = sharedPreferences.getString("USERNAME","");
+        EMAIL = sharedPreferences.getString("EMAIL","");
+        PHONE = sharedPreferences.getString("PHONE","");
+        Log.i("error", "in mainactivity "+USERNAME+EMAIL+PHONE);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        View header=navigationView.getHeaderView(0);
+
+        txtUserName = (TextView)header.findViewById(R.id.txtUSERNAME);
+        txtEmail = (TextView)header.findViewById(R.id.txtEMAIL);
+        txtPhone = (TextView)header.findViewById(R.id.txtPHONE);
+        txtUserName.setText(USERNAME);
+        txtEmail.setText(EMAIL);
+        txtPhone.setText(PHONE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,9 +95,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -108,9 +134,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.medAvail) {
-            startActivity(new Intent(getApplicationContext(), MedicineAvailibility.class));
-        } else if (id == R.id.bloodreq) {
+        switch (id){
+            case R.id.medAvail:
+                startActivity(new Intent(MainActivity.this, MedicineAvailibility.class));
+                break;
+        }
+        if (id == R.id.bloodreq) {
             startActivity(new Intent(getApplicationContext(), BloodRequest.class));
         } else if (id == R.id.nav_manage) {
             Toast.makeText(getApplicationContext(), "This feature is not available", Toast.LENGTH_SHORT).show();

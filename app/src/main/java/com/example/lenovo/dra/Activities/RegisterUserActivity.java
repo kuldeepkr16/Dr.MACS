@@ -134,13 +134,13 @@ public class RegisterUserActivity extends AppCompatActivity {
         else if(!rbtnMale.isChecked() && !rbtnFemale.isChecked()){
             stat = 3;
         }
-        if(txtPassword.getText().toString().trim().length()<6){
+        else if(txtPassword.getText().toString().trim().length()<6){
             stat = 4;
         }
-        if(txtPhoneNo.getText().toString().trim().length()<10){
+        else if(txtPhoneNo.getText().toString().trim().length()<10){
             stat = 5;
         }
-        if(txtPin.getText().toString().trim().length()<6){
+        else if(txtPin.getText().toString().trim().length()<6){
             stat = 6;
         }
         return stat;

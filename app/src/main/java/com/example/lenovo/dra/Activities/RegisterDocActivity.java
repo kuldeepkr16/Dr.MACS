@@ -1,6 +1,7 @@
 package com.example.lenovo.dra.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -67,9 +68,11 @@ public class RegisterDocActivity extends AppCompatActivity {
         chkConfirmation = (CheckBox) findViewById(R.id.chkConfirm);
         textViewTerms = (TextView) findViewById(R.id.textViewTerms);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+
         txtTitle = (TextView) findViewById(R.id.txtTitle);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/barbar.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/barbar.ttf");
         txtTitle.setTypeface(custom_font);
+
         btnBackTop = (ImageView) findViewById(R.id.btnBackTop);
         btnBackTop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +115,8 @@ public class RegisterDocActivity extends AppCompatActivity {
                     return;
                 }
                 registerUser();
-                    Toast.makeText(RegisterDocActivity.this, "Registration Successful! Login To Continue", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterDocActivity.this, LoginActivity.class));
+                    Toast.makeText(RegisterDocActivity.this, "Registration Successful! You are now logged in as "+txtUname.getText().toString(), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterDocActivity.this, MainActivity.class));
                 }
         });
     }
@@ -138,13 +141,13 @@ public class RegisterDocActivity extends AppCompatActivity {
         else if(!rbtnMale.isChecked() && !rbtnFemale.isChecked()){
             stat = 3;
         }
-        if(txtPassword.getText().toString().trim().length()<6){
+        else if(txtPassword.getText().toString().trim().length()<6){
             stat = 4;
         }
-        if(txtPhoneNo.getText().toString().trim().length()<10){
+        else if(txtPhoneNo.getText().toString().trim().length()<10){
             stat = 5;
         }
-        if(txtPin.getText().toString().trim().length()<6){
+        else if(txtPin.getText().toString().trim().length()<6){
             stat = 6;
         }
         return stat;
