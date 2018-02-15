@@ -36,7 +36,7 @@ public class sendNotification extends AppCompatActivity {
         txtMessage = (EditText) findViewById(R.id.txtMessage);
         btnSend = (Button) findViewById(R.id.btnSendNotification);
         mCurrentId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final String toUserId = "2yqRhwxX2SYKJ55HVGIoPUX9Dga2" ;
+        final String toUserId = "EkNJdD2y9xMYIaGwQYPfgqDcM3G2" ;
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

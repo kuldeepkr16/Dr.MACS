@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.lenovo.dra.Activities.HospitalSearch;
+import com.example.lenovo.dra.Activities.NearbyPlaces;
+import com.example.lenovo.dra.Activities.ShowList;
 import com.example.lenovo.dra.Activities.sendNotification;
 import com.example.lenovo.dra.R;
 
@@ -19,6 +20,8 @@ public class homeFragment extends Fragment {
     Intent intent;
     Button btnGo;
     Button btnSend;
+    Button btnShowList;
+
     public homeFragment() {
         // Required empty public constructor
     }
@@ -33,10 +36,11 @@ public class homeFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         btnGo = (Button) view.findViewById(R.id.btnGo);
         btnSend = (Button) view.findViewById(R.id.send);
+        btnShowList = (Button) view.findViewById(R.id.btnShowList);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(),HospitalSearch.class);
+                intent = new Intent(getActivity(), NearbyPlaces.class);
                 startActivity(intent);
             }
         });
@@ -49,5 +53,11 @@ public class homeFragment extends Fragment {
             }
         });
 
+        btnShowList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ShowList.class));
+            }
+        });
     }
 }

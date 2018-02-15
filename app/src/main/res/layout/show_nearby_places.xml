@@ -12,22 +12,6 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/textIcon"
         android:background="@color/colorPrimaryLight"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Nearby Medical Store"
-        android:id="@+id/btnMedicalStores"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/textIcon"
-        android:background="@color/colorPrimaryLight"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blood Requests"
-        android:id="@+id/btnBloodReq"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/textIcon"
-        android:background="@color/colorPrimaryLight"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -26,6 +26,18 @@
         android:background="@drawable/btn_border"
         />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id= "@+id/btnShowList"
+            android:text="Show List after get started"
+            android:layout_marginTop="40dp"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/textIcon"
+            android:background="@drawable/btn_border"
+            />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
