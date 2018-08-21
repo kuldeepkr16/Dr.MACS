@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.lenovo.dra.R;
 import com.example.lenovo.dra.ShowTerms;
 import com.google.android.gms.tasks.OnCompleteListener;

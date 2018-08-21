@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.lenovo.dra.R;
 import com.example.lenovo.dra.ShowTerms;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,7 +45,7 @@ public class RegisterMediStoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_medi_store);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("medicalstores");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("medical stores");
         mAuth = FirebaseAuth.getInstance();
         txtUname = (EditText) findViewById(R.id.txtuname);
         txtEmail = (EditText) findViewById(R.id.txtemail);

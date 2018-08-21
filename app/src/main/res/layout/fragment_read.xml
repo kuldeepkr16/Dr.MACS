@@ -2,22 +2,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="5dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingBottom="0dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.lenovo.dra.fragments.readFragment">
 
-    <LinearLayout
+    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_myposts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="100dp"
-        android:background="@color/colorPrimaryDark">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="News posts here"
-        android:id="@+id/txtNewPost"/>
+        android:background="@drawable/background">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/blog_list">
+        </android.support.v7.widget.RecyclerView>
+
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:id="@+id/imagebtn"
+            android:layout_height="match_parent"
+            android:paddingBottom="4dp"
+            android:src="@drawable/ic_linked_camera_black_24dp"
+            android:scaleType="centerCrop"/>
+
+        <EditText
+            android:layout_width="284dp"
+            android:id="@+id/description"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Description..."
+            android:inputType="textMultiLine"
+            android:background="@drawable/input_outline2"
+            android:layout_weight="15.32"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="2dp"
+            android:padding="15dp"/>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:id="@+id/SubmitPost"
+        android:scaleType="centerCrop"
+        android:background="@drawable/background"
+        android:src="@drawable/sendnoti"
+        android:layout_marginBottom="45dp"/>
+
 </FrameLayout>

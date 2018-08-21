@@ -6,13 +6,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -28,6 +30,12 @@
             android:name=".Activities.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".IntroActivity"
+            android:launchMode="standard"
+            android:screenOrientation="fullUser"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -49,19 +57,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".Activities.MedicineAvailibility"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name=".Activities.BloodRequest"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
             android:name=".ShowTerms"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterWithActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.RegisterHospActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activities.sendNotification"
             android:screenOrientation="portrait" />
@@ -70,9 +73,122 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".Activities.NearbyPlaces"
+            android:name=".Activities.NearbyHospitals"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.ActivityBooking"></activity>
+        <activity
+            android:name=".Activities.NearbyMedStores"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.NearbyVet"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.NearbyDentalClinics"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.ActivityBooking"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <service android:name=".Activities.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Activities.BloodFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Activities.MedicineFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Activities.ConfirmBloodFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Activities.ConfirmMedicineFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Activities.ConfirmAppointmentFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <activity
+            android:name=".Activities.OnClickingNoti"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.OnRecievingBloodRequest"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.BLOOD.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListBloodRequestsNotifications"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.OnReceivingBloodConfirmation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.BLOOD.CONFIRM.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.OnReceivingMedicineRequest"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.MEDICINE.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.OnReceivingMedicineConfirmation"
+            android:screenOrientation="portrait">
+            <action android:name="in.kd.notify.MEDICINE.CONFIRM.TARGETNOTIFICATION" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
+        <activity android:name=".HospitalRecyclerList" />
+        <activity android:name=".Activities.DisplayMediStoreDetails"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.OnReceivingAppoinRequest"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.APPOINTMENT.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.OnRecievingAppoinConfirmation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="in.kd.notify.MEDICINE.CONFIRM.TARGETNOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

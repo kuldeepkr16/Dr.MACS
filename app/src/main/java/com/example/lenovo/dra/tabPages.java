@@ -3,7 +3,6 @@ package com.example.lenovo.dra;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
 import com.example.lenovo.dra.fragments.homeFragment;
 import com.example.lenovo.dra.fragments.profileFragment;
 import com.example.lenovo.dra.fragments.readFragment;

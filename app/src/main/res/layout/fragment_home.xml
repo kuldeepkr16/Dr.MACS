@@ -2,40 +2,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="5dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingBottom="0dp"
     tools:context="com.example.lenovo.dra.fragments.homeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:id="@+id/laySnack"
+        android:padding="20dp"
+        android:background="@drawable/background">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id= "@+id/btnGo"
-        android:text="Get Started"
-        android:layout_marginTop="150dp"
-        android:textSize="15dp"
-        android:layout_gravity="center"
-        android:textColor="@color/textIcon"
-        android:background="@drawable/btn_border"
-        />
+        <TextView
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="5dp"
+            android:text="Choose radius in km to search nearby places - "
+            android:textColor="@color/textIcon"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="send notification"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/textIcon"
-        android:textSize="15dp"
-        android:background="@drawable/btn_border"
-        android:id="@+id/send"
-        />
-    </LinearLayout>
+        <Spinner
+            android:id="@+id/mapRadius"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:padding="5dp"
+            android:background="@drawable/border"/>
+
+            <ImageButton
+                android:id="@+id/IbtnHospital"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:elevation="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_outline"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hosp"/>
+
+            <ImageButton
+                android:id="@+id/IbtnMedicalStore"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:elevation="4dp"
+                android:background="@drawable/input_outline"
+                android:scaleType="centerCrop"
+                android:src="@drawable/medstore" />
+
+            <ImageButton
+                android:id="@+id/IbtnVet"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:elevation="4dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_outline"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vets"/>
+
+            <ImageButton
+                android:id="@+id/IbtnDentHopital"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:elevation="4dp"
+                android:background="@drawable/input_outline"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dental"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Click On Any of the above Images to find hospitals, medical
+            stores etc nearby you, from where you can view their location and can contact them."
+            android:textColor="#000"
+            android:textSize="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

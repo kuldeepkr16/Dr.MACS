@@ -1,7 +1,6 @@
 package com.example.lenovo.dra.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.lenovo.dra.R;
 import com.example.lenovo.dra.ShowTerms;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -115,8 +113,9 @@ public class RegisterDocActivity extends AppCompatActivity {
                     return;
                 }
                 registerUser();
-                    Toast.makeText(RegisterDocActivity.this, "Registration Successful! You are now logged in as "+txtUname.getText().toString(), Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterDocActivity.this, MainActivity.class));
+                    Toast.makeText(RegisterDocActivity.this, "Registration Successful! now logged in to continue "+txtUname.getText().toString(), Toast.LENGTH_SHORT).show();
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(RegisterDocActivity.this, LoginActivity.class));
                 }
         });
     }

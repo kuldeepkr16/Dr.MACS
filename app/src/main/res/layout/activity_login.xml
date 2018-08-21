@@ -1,58 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@drawable/background">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/myLoginLayout"
-    android:padding="50dp"
-    android:weightSum="1"
-    android:background="@color/colorPrimaryLight">
+    android:padding="50dp">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/strethoscope"
-        android:layout_gravity="center"/>
     <TextView
         android:text="DR. MACS login"
-        android:textSize="30dp"
-        android:layout_marginTop="20dp"
+        android:textSize="35dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/textIcon"
         android:id="@+id/textdrmacs" />
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/strethoscope"
         android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/imageView2" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <EditText
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
+            android:padding="10dp"
+            android:textDirection="firstStrong">
+        <RadioButton
+            android:id="@+id/rbtnLUsers"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Users"
+            android:textSize="15dp" />
+       <RadioButton
+            android:id="@+id/rbtnLDoctors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Doctor"
+           android:padding="5dp"
+            android:textSize="15dp" />
+
+       <RadioButton
+            android:id="@+id/rbtnLMedical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medical Store"
+           android:padding="5dp"
+            android:textSize="15dp" />
+
+        <RadioButton
+            android:id="@+id/rbtnLHospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hospital"
+            android:padding="5dp"
+            android:textSize="15dp" />
+    </RadioGroup>
+
+    <EditText
             android:id="@+id/txtUserName"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/style"
+            android:ems="10"
+            android:hint="EMAIL"
+            android:inputType="textEmailAddress"
             android:padding="15dp"
-            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginTop="10dp"
             android:textColor="@color/primaryText"
-            android:layout_marginTop="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:hint="EMAIL"/>
+            android:textCursorDrawable="@drawable/cursor_color" />
 
         <EditText
             android:layout_width="match_parent"
@@ -61,7 +86,6 @@
             android:ems="10"
             android:background="@drawable/style"
             android:id="@+id/txtPassword"
-            android:layout_weight="1"
             android:textCursorDrawable="@drawable/cursor_color"
             android:textColor="@color/primaryText"
             android:padding="15dp"
@@ -79,10 +103,7 @@
             android:id="@+id/btnLogin"
             android:textSize="16dp"
             android:textColor="@color/textIcon"
-            android:layout_below="@+id/txtPassword"
             android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

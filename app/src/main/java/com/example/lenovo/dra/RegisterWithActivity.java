@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import com.example.lenovo.dra.Activities.RegisterDocActivity;
+import com.example.lenovo.dra.Activities.RegisterHospActivity;
 import com.example.lenovo.dra.Activities.RegisterMediStoreActivity;
 import com.example.lenovo.dra.Activities.RegisterUserActivity;
 
@@ -55,7 +55,7 @@ public class RegisterWithActivity extends AppCompatActivity {
                     startActivity(new Intent(RegisterWithActivity.this, RegisterMediStoreActivity.class));
                 }
                 else if(rbtnHosp.isChecked()){
-
+                    startActivity(new Intent(RegisterWithActivity.this, RegisterHospActivity.class));
                 }
             }
         });

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/input_outline"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:id="@+id/myHospital"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:background="@drawable/input_outline"
+            android:text="my name is jhalak"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@drawable/input_outline"
+            android:id="@+id/myplacee"
+            android:textSize="20dp"
+            android:paddingTop="10dp"
+            android:text="jhalak"/>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

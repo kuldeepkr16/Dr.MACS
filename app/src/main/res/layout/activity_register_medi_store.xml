@@ -101,6 +101,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView4" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <RadioButton
+                android:text="Male"
+                android:textSize="15dp"
+                android:buttonTint="@color/secondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbtnmale"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:text="Female"
+                android:textSize="15dp"
+                android:buttonTint="@color/secondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbtnFemale"
+                android:layout_weight="1"/>
+        </RadioGroup>
 
         <TextView
             android:text="*Phone Number:-"
