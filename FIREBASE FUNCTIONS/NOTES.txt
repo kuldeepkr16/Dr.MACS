@@ -1,0 +1,1 @@
+You can install all the required node modules using – npm install
